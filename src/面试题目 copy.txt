@@ -1,0 +1,192 @@
+选择题
+1.	JavaScript 基本类型包含
+（1）	number, string, boolean, 
+（2）	number, string, boolean, null, undefined
+（3）	number, string, boolean, null, undefined, symbol, bigint
+（4）	number, string, boolean, null, undefined, symbol, bigint, object
+
+2.	let str = “hi”;
+str.test = 100;
+console.log(str.test); 在严格模式下会显示什么结果
+（1）	100
+（2）	Undefined
+（3）	报错
+
+3.	const num1 = prompt(“please input number1”);
+const num2 = prompt(“please input number2”);
+alert(`The sum of two numbers is ${+num1+num2}`); 
+但在提示框输入10，20的时候，结果显示
+（1）30
+	（2）1020
+	（3）NaN
+	（4）报错
+
+
+4、下列说法正确的有：（ ）
+    A、visibility:hidden;所占据的空间位置仍然存在，仅为视觉上的完全透明；
+    B、display:none;不为被隐藏的对象保留其物理空间；
+    C、visibility:hidden;与display:none;两者没有本质上的区别；
+    D、visibility:hidden;产生reflow和repaint（回流与重绘）；
+
+5、以下全部属于块级标签的是？（ ）
+    A、<div><p><input><span><img>
+    B、<div><h1><p><img><dl>
+    C、<span><h1><p><img><dl>
+    D、<div><p><form><ul><h1>
+
+
+6、关于position定位，下列说法错误的是（ ）
+    A、fixed元素，可定位于相对于浏览器窗口的指定坐标，它始终是以 body 为依据
+    B、relative元素以它原来的位置为基准偏移，在其移动后，原来的位置不再占据空间
+    C、absolute 的元素，如果它的 父容器设置了 position 属性，并且 position 的属性值为 absolute 或者 relative，那么就会依据父容器进行偏移
+    D、fixed 属性的元素在标准流中不占位置
+
+7、css中哪些属性不可以继承（ ）
+    A、font-size
+    B、color
+    C、font-family
+    D、border
+
+
+8、浮动会导致页面的非正常显示，以下几种清除浮动的方法，哪个是不推荐使用的？（ ）
+A、在浮动元素末尾添加一个空的标签例如 <div style=”clear:both”></div>
+B、通过设置父元素overflow值为hidden；
+C、父元素也设置浮动
+D、给父元素添加clearfix类
+
+
+9、代码 typeof null, null instanceof Object 输出的结果
+A: ["object", false]
+B: [null, false]yarn global add @vue/cli
+C: ["object", true]
+D: 其他
+
+
+10、 表达式 {} == {}
+A: true
+B: false
+C: error
+D: other
+
+11、const ary = Array(3);
+ary[0]=2
+ary.map(() => 8);
+
+A: [2, 8, 8]
+B: [8, 8, 8]
+C: [2, undefined, undefined]
+D: other
+
+
+12、 const x = [].reverse;
+x();
+A: []
+B: undefined
+C: error
+D: window
+
+
+13、const a = /123/,
+    b = /123/;
+a == b
+a === b
+A: true, true
+B: true, false
+C: false, false
+D: other
+
+
+
+14、const a = {}, b = Object.prototype;
+[a.prototype === b, Object.getPrototypeOf(a) === b]
+A: [false, true]
+B: [true, true]
+C: [false, false]
+D: other
+
+
+简答题
+0. 画一个盒模型简单的示意图
+1. 绝对定位与相对定位的区别
+2. 水平垂直居中， css代码
+1. foo的值是什么
+let foo = 10 + '20'
+
+2. console.log(0.1 + 0.2 == 0.3)结果是什么
+
+3. 写个add函数， 满足add(2)(5)的结果是7  add(2)(5)(10) 结果是17  
+
+4. 如何把一个字符串的大小写取反（大写变小写小写变大写），例如 ’AbC' 变成 'aBc'
+
+5. const persons = [{name: 'Mike', age: 18}, {name: 'Lily', age: 30}, {name: 'Kate', age: 16}, {name: 'Mike', age: 18}];
+把这个数组persons 按照name去重， 去重完成后， 按照age排序
+
+6. console.log('one');
+setTimeout(function() {
+  console.log('two');
+}, 0);
+Promise.resolve().then(function() {
+  console.log('three');
+})
+console.log('four');
+这段代码输出什么
+
+
+7. 代码 function f(x){
+        return x;
+    }
+
+    function  g(x, y){
+        if(x(y)){
+            return !y;
+        }
+        return y;
+    }
+
+
+    x = 3
+    x = g(f, x)
+    f = g(f, 0)
+    console.log(x);
+    console.log(f);
+输出的是什么
+
+8. 给定两个数组，写一个方法来计算它们的交集。
+例如：给定 nums1 = [1, 2, 2, 1]，nums2 = [2, 2]，返回 [2, 2]。
+
+
+框架题目
+1.写 React / Vue 项目时为什么要在列表组件中写 key，其作用是什么？
+2.什么是虚拟DOM？ 它有什么好处？
+3.React创建组件的方式与他们的区别
+4.React 中 refs 干嘛用的
+5.React中 state 与 props的区别
+6.什么是受控组件
+7. 下面代码有什么问题
+class MyComponent extentds React.PureComponent {
+    constructor(prop){
+        this.state = {
+            counter: 0
+        }
+    }
+
+    increment(){
+        this.state.counter += 1;
+    }
+
+    decrement(){
+         this.state.counter -= 1;
+    }
+
+    render(){
+        return (
+            <div>
+                <button onClick={this.increment}>增加</button>
+                <button onClick={this.decrement}>减少</button>
+                <span>{counter}</span>
+            </div>
+        )
+    }
+}
+8. React组件生命周期有哪些阶段与生命周期方法
+9. Redux是什么, 它的组件与执行流程是怎么样的

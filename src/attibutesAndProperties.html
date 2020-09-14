@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="test" something="non-standard">
+    <!-- <input id="input" type="text"> -->
+    <!-- <script>
+        document.body.myData = {
+            name: 'Caesar',
+            title: 'Imperator'
+        };
+
+        console.log(document.body.myData.title);
+
+        document.body.sayTagName = function() {
+            console.log(this.tagName);
+        };
+
+        document.body.sayTagName();
+
+        Element.prototype.sayHi = function() {
+            console.log(`Hello, I'm ${this.tagName}`);
+        };
+
+        document.documentElement.sayHi();
+        document.body.sayHi();
+
+        console.log(document.body.id);
+        console.log(document.body.something);
+
+        console.log(input.type);
+        console.log(document.body.type);
+
+        console.log(document.body.getAttribute("something"));
+        console.log(document.body.attributes);
+    </script> -->
+
+    <!-- <div id="elem" about="Elephant"></div>
+    <script>
+        console.log(elem.getAttribute("About"));
+        elem.setAttribute('Test', 123);
+        console.log(elem.outerHTML);
+        for(let attr of elem.attributes) {
+            console.log(`${attr.name} = ${attr.value}`)
+        }
+    </script> -->
+
+    <input>
+    <script>
+        let input = document.querySelector('input');
+
+        input.setAttribute('id', 'id');
+        console.log(input.id);
+
+        input.id = 'newId';
+        console.log(input.getAttribute('id'));
+    </script>
+</body>
+</html>

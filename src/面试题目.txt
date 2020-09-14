@@ -1,0 +1,246 @@
+选择题
+
+8、下列说法正确的有：（ ）
+    A、visibility:hidden;所占据的空间位置仍然存在，仅为视觉上的完全透明；
+    B、display:none;不为被隐藏的对象保留其物理空间；
+    C、visibility:hidden;与display:none;两者没有本质上的区别；
+    D、visibility:hidden;产生reflow和repaint（回流与重绘）；
+
+14、以下全部属于块级标签的是？（ ）
+    A、<div><p><input><span><img>
+    B、<div><h1><p><img><dl>
+    C、<span><h1><p><img><dl>
+    D、<div><p><form><ul><h1>
+
+
+19、关于position定位，下列说法错误的是（ ）
+    A、fixed元素，可定位于相对于浏览器窗口的指定坐标，它始终是以 body 为依据
+    B、relative元素以它原来的位置为基准偏移，在其移动后，原来的位置不再占据空间
+    C、absolute 的元素，如果它的 父容器设置了 position 属性，并且 position 的属性值为 absolute 或者 relative，那么就会依据父容器进行偏移
+    D、fixed 属性的元素在标准流中不占位置
+
+20、css中哪些属性不可以继承（ ）
+    A、font-size
+    B、color
+    C、font-family
+    D、border
+
+
+24、浮动会导致页面的非正常显示，以下几种清除浮动的方法，哪个是不推荐使用的？（ ）
+A、在浮动元素末尾添加一个空的标签例如 <div style=”clear:both”></div>
+B、通过设置父元素overflow值为hidden；
+C、父元素也设置浮动
+D、给父元素添加clearfix类
+
+
+代码 typeof null, null instanceof Object 输出的结果
+A: ["object", false]
+B: [null, false]yarn global add @vue/cli
+C: ["object", true]
+D: 其他
+
+
+表达式 {} == {}
+A: true
+B: false
+C: error
+D: other
+
+const ary = Array(3);
+ary[0]=2
+ary.map(() => 8);
+
+A: [2, 8, 8]
+B: [8, 8, 8]
+C: [2, undefined, undefined]
+D: other
+
+
+const x = [].reverse;
+x();
+A: []
+B: undefined
+C: error
+D: window
+
+
+const a = /123/,
+    b = /123/;
+a == b
+a === b
+A: true, true
+B: true, false
+C: false, false
+D: other
+
+
+
+const a = {}, b = Object.prototype;
+[a.prototype === b, Object.getPrototypeOf(a) === b]
+A: [false, true]
+B: [true, true]
+C: [false, false]
+D: other
+
+
+简答题
+0. 画一个盒模型简单的示意图
+1. 绝对定位与相对定位的区别
+2. 水平垂直居中， css代码
+1. foo的值是什么
+let foo = 10 + '20'
+
+2. console.log(0.1 + 0.2 == 0.3)结果是什么
+
+3. 写个add函数， 满足add(2)(5)的结果是7  add(2)(5)(10) 结果是17  
+
+4. 如何把一个字符串的大小写取反（大写变小写小写变大写），例如 ’AbC' 变成 'aBc'
+
+5. const persons = [{name: 'Mike', age: 18}, {name: 'Lily', age: 30}, {name: 'Kate', age: 16}, {name: 'Mike', age: 18}];
+把这个数组persons 按照name去重， 去重完成后， 按照age排序
+
+6. console.log('one');
+setTimeout(function() {
+  console.log('two');
+}, 0);
+Promise.resolve().then(function() {
+  console.log('three');
+})
+console.log('four');
+这段代码输出什么
+
+
+7. 代码 function f(x){
+        return x;
+    }
+
+    function  g(x, y){
+        if(x(y)){
+            return !y;
+        }
+        return y;
+    }
+
+
+    x = 3
+    x = g(f, x)
+    f = g(f, 0)
+    console.log(x);
+    console.log(f);
+输出的是什么
+
+8. 给定两个数组，写一个方法来计算它们的交集。
+例如：给定 nums1 = [1, 2, 2, 1]，nums2 = [2, 2]，返回 [2, 2]。
+
+
+框架题目
+1.写 React / Vue 项目时为什么要在列表组件中写 key，其作用是什么？
+2.什么是虚拟DOM？ 它有什么好处？
+3.React创建组件的方式与他们的区别
+4.React 中 refs 干嘛用的
+5.React中 state 与 props的区别
+6.什么是受控组件
+7. 下面代码有什么问题
+class MyComponent extentds React.PureComponent {
+    constructor(prop){
+        this.state = {
+            counter: 0
+        }
+    }
+
+    increment(){
+        this.state.counter += 1;
+    }
+
+    decrement(){
+         this.state.counter -= 1;
+    }
+
+    render(){
+        return (
+            <div>
+                <button onClick={this.increment}>增加</button>
+                <button onClick={this.decrement}>减少</button>
+                <span>{counter}</span>
+            </div>
+        )
+    }
+}
+8. React组件生命周期有哪些阶段与生命周期方法
+9. Redux是什么, 它的组件与执行流程是怎么样的
+
+1、自我介绍
+2、你的项目中技术难点是什么？遇到了什么问题？你是怎么解决的？
+3、你认为哪个项目做得最好？
+4、平时是如何学习前端开发的？
+5、你最有成就感的一件事
+6、你是怎么学习前端的
+人事面
+1、面试完你还有什么问题要问的吗
+2、你有什么爱好?
+3、你最大的优点和缺点是什么?
+4、你为什么会选择这个行业，职位?
+5、你觉得你适合从事这个岗位吗?
+6、你有什么职业规划?
+7、你对工资有什么要求?
+8、如何看待前端开发？
+9、未来三到五年的规划是怎样的？
+其他
+谈谈你对重构的理解？
+网络重构：在不改变外部行为的前提下，简化结构、添加可读性，而在网站前端保持一致的行为。也就是说是在不改变UI的情况下，对网站进行优化， 在扩展的同时保持一致的UI
+对于传统的网站来说重构通常是：
+
+表格(table)布局改为DIV+CSS
+使网站前端兼容于现代浏览器(针对于不合规范的CSS、如对IE6有效的)
+对于移动平台的优化
+针对于SEO进行优化
+
+什么样的前端代码是好的？
+高复用低耦合，这样文件小，好维护，而且好扩展
+对前端工程师这个职位是怎么样理解的？它的前景会怎么样？
+前端是最贴近用户的程序员，比后端、数据库、产品经理、运营、安全都近
+
+实现界面交互
+提升用户体验
+有了Node.js，前端可以实现服务端的一些事情
+
+前端是最贴近用户的程序员，前端的能力就是能让产品从 90分进化到 100 分，甚至更好，
+与团队成员，UI设计，产品经理的沟通；
+做好的页面结构，页面重构和用户体验；
+你觉得前端工程的价值体现在哪？
+1、为简化用户使用提供技术支持（交互部分）
+2、为多个浏览器兼容性提供支持
+3、为提高用户浏览速度（浏览器性能）提供支持
+4、为跨平台或者其他基于webkit或其他渲染引擎的应用提供支持
+5、为展示数据提供支持（数据接口）
+平时如何管理你的项目？
+
+
+先期团队必须确定好全局样式（globe.css），编码模式(utf-8) 等；
+
+
+编写习惯必须一致（例如都是采用继承式的写法，单样式都写成一行）；
+
+
+标注样式编写人，各模块都及时标注（标注关键样式调用的地方）；
+
+
+页面进行标注（例如 页面 模块 开始和结束）；
+
+
+CSS跟HTML 分文件夹并行存放，命名都得统一（例如style.css）；
+
+
+JS 分文件夹存放 命名以该JS功能为准的英文翻译。
+
+
+图片采用整合的 images.png png8 格式文件使用 - 尽量整合在一起使用方便将来的管理
+
+
+移动端（Android IOS）怎么做好用户体验?
+清晰的视觉纵线、
+信息的分组、极致的减法、
+利用选择代替输入、
+标签及文字的排布方式、
+依靠明文确认密码、
+合理的键盘利用

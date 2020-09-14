@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .circle {
+        transition-property: width, height, margin-left, margin-top;
+        transition-duration: 2s;
+        position: fixed;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: red;
+        border-radius: 50%;
+
+        width: 200px;
+        height: 200px;
+        top: 150px;
+        left: 150px;
+      }
+
+      .message-ball {
+      font-size: 20px;
+      line-height: 200px;
+      text-align: center;
+    }
+
+      .init {
+        width: 1px;
+        height: 1px;
+        top: 150px;
+        left: 150px;
+        position: fixed;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: #fff;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="start" onclick="go()">showCircle(150, 150, 100)</button>
+    <!-- <div class="init"></div> -->
+
+    <script>
+        function go(){
+            showCircle(150,150,100,div => {div.classList.add('message-ball');div.append('Hello, world!');})
+        }
+    
+      function showCircle(cx, cy, radius, callback) {
+        // document.querySelector("div").classList.remove("init");
+        // document.querySelector("div").classList.add("circle");
+        // const divStyle = document.querySelector("div").style;
+        // divStyle.width = radius * 2 + "px";
+        // divStyle.height = radius * 2 + "px";
+        // divStyle.left = cx + "px";
+        // divStyle.top = cy + "px";
+        let div = document.createElement('div');
+        div.style.width = 0;
+        div.style.height = 0;
+        div.style.left = cx + 'px';
+        div.style.top = cy + 'px';
+        div.className = 'circle';
+        document.body.append(div);
+
+        setTimeout(() => {
+          div.style.width = radius * 2 + 'px';
+          div.style.height = radius * 2 + 'px';
+          
+        div.addEventListener("transitionend",function hanlder(){
+            div.removeEventListener("transitionend", hanlder);
+            callback(div);
+        });
+        }, 0);
+   
+      }
+    //   const button = document.getElementById('start');
+    //   button.addEventListener('click', () => showCircle(300, 300, 300));
+    </script>
+  </body>
+</html>

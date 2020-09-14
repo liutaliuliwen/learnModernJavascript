@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .invalia {
+            border-color: red;
+        }
+
+        #error {
+            color: red;
+        }
+
+        .error {
+            background: red;
+        }
+    </style>
+    Your email please: <input type="email" id="input">
+    <div id="error"></div>
+
+    <script>
+        input.onblur = function() {
+            if(!input.value.includes('@')){
+                input.classList.add('invalid');
+                error.innerHTML = 'Please enter a correct email.'
+            }
+        }
+
+        input.onfocus = function() {
+            if (this.classList.contains('invalid')){
+                this.classList.remove('invalid');
+                error.innerHTML = "";
+            }
+        }
+    </script>
+
+    Your email please: <input type="email" id="input2">
+    <input type="text" style="width: 220px;" placeholder="make email invalid and try to focus here">
+    <script>
+        input2.onblur = function() {
+            if(!this.value.includes('@')){
+                this.classList.add("error");
+                input2.focus();
+            } else {
+                this.classList.remove("error");
+            }
+        }
+    </script>
+
+    <ul>
+        <li tabindex="1">One</li>
+        <li tabindex="0">Zero</li>
+        <li tabindex="2">Two</li>
+        <li tabindex="-1">Minus one</li>
+    </ul>
+    <style>
+        li {
+            cursor: pointer;
+        }
+        :focus {
+            outline: 1px dashed green   ;
+        }
+    </style>
+
+    <form id="form" onfocus="this.className='focused'">
+        <input type="text" name="name" value="Name">
+        <input type="text" name="surname" value="Surname">
+    </form>
+
+    <style> 
+        .focused {
+            outline: 1px solid red;
+        }    
+    </style>
+
+    <script>
+        // form.addEventListener("focus", () => form.classList.add('focused'), true);
+        // form.addEventListener("blur", () => form.classList.remove("focused"), true);
+
+        form.addEventListener("focusin", () => form.classList.add("focused"));
+        form.addEventListener("focusout", () => form.classList.remove("focused"));
+    </script>
+</body>
+</html>

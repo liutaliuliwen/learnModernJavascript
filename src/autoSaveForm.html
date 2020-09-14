@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea style="width:200px; height: 60px;" id="area" placeholder="Write here"></textarea>
+<button id="clear">Clear</button>
+<script>
+    const areaValue = localStorage.getItem("area");
+    if(areaValue){
+        area.value = areaValue;
+    }
+    area.addEventListener("change", function(e){
+        const value = e.target.value;
+        localStorage.setItem("area", value);
+    })
+    clear.addEventListener('click', function(){
+        area.value = "";
+        localStorage.removeItem('area');
+    })
+  </script>
+</body>
+</html>

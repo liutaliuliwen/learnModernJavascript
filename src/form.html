@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="my">
+      <input name="one" value="1" />
+      <input type="two" value="2" />
+    </form>
+
+    <script>
+      let form = document.forms.my;
+
+      let elem = form.elements.one;
+
+      console.log(elem.value);
+    </script>
+
+    <form>
+      <input type="radio" name="age" value="10" />
+      <input type="radio" name="age" value="20" />
+    </form>
+
+    <script>
+      form = document.forms[1];
+      let ageElems = form.elements.age;
+      console.log(ageElems);
+    </script>
+
+    <form id="form">
+        <fieldset name="userFields">
+            <legend>info</legend>
+            <input name="login" type="text">
+        </fieldset>
+    </form>
+    <script>
+        form = document.getElementById("form");
+        console.log(form.elements.login);
+        let fieldset = form.elements.userFields;
+        console.log(fieldset);
+        console.log(fieldset.elements.login === form.elements.login);
+
+        console.log("============================");
+        console.log(form.login === form.elements.login);
+        form.login.name = "username";
+
+        console.log(form.elements.login);
+        console.log(form.elements.username);
+        console.log(form.username === form.login)
+    </script>
+
+    <form id="myForm">
+        <input type="text" name="login">
+    </form>
+    <script>
+        let login = myForm.login;
+        console.log(login.form);
+    </script>
+
+    <select id="select">
+        <option value="apple">Apple</option>
+        <option value="pear">Pear</option>
+        <option value="banana">Banana</option>
+    </select>
+    <script>
+        select.options[1].selected = true;
+        select.value = "pear";
+        select.selectedIndex = 1;
+    </script>
+
+    
+  </body>
+</html>

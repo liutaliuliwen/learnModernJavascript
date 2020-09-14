@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+      }
+      p {
+        margin-top: 10px;
+        font-size: 13px;
+        text-align: justify;
+      }
+      .container,
+      .book-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        background: #2d6f75;
+      }
+      .book-content {
+        width: 65%;
+        min-width: 250px;
+        max-width: 400px;
+        height: 330px;
+        position: relative;
+        perspective: 1000px;
+        transition: 1s;
+      }
+      .book {
+        position: absolute;
+        width: 65%;
+        height: 100%;
+        transition: 1s;
+        transform-style: preserve-3d;
+        transform-origin: left;
+      }
+      .face-front,
+      .face-back {
+        width: 100%;
+        height: 100%;
+        background: white;
+        padding: 15px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .face-front {
+        box-shadow: inset 3px 0px 20px -7px black;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+      .face-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateZ(-1px) rotateY(180deg);
+        box-shadow: inset -3px 1px 20px -7px black;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+      #portada {
+        background: url('./images/bookPortada.jpg');
+      }
+      #portada-back {
+        background: url('./images/portadaBack.jpg');
+      }
+      #portada,
+      #portada-back {
+        background-size: 100% 100%;
+      }
+
+      /* Clases que se agregaran con Javascript */
+
+      .trnsf {
+        transform: translateX(80px);
+      }
+      .trnsf-reset {
+        transform: translateX(0px);
+      }
+
+      /* @media para hacer el texto responsivo */
+
+      @media screen and (max-width: 800px) {
+        p {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="book-content">
+        <div class="book">
+          <div class="face-front" id="portada"></div>
+          <div class="face-back" id="trsf">
+            <h1>Title 1</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum
+              voluptatibus eaque repudiandae ullam necessitatibus, dolor ad expedita, eum
+              praesentium vitae! Voluptate in itaque modi consequatur. Aliquid odit quisquam
+              quibusdam!
+            </p>
+          </div>
+        </div>
+
+        <div class="book">
+          <div class="face-front">
+            <h1>Title 2</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perferendis nemo
+              blanditiis impedit aut soluta quia illum deserunt, vero quod ducimus placeat voluptate
+              quidem error sequi, earum eos minima in!
+            </p>
+          </div>
+          <div class="face-back">
+            <h1>Title 3</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum
+              voluptatibus eaque repudiandae ullam necessitatibus, dolor ad expedita, eum
+              praesentium vitae! Voluptate in itaque modi consequatur. Aliquid odit quisquam
+              quibusdam!
+            </p>
+          </div>
+        </div>
+
+        <div class="book">
+          <div class="face-front">
+            <h1>Title 4</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perferendis nemo
+              blanditiis impedit aut soluta quia illum deserunt, vero quod ducimus placeat voluptate
+              quidem error sequi, earum eos minima in!
+            </p>
+          </div>
+          <div class="face-back">
+            <h1>Title 5</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum
+              voluptatibus eaque repudiandae ullam necessitatibus, dolor ad expedita, eum
+              praesentium vitae! Voluptate in itaque modi consequatur. Aliquid odit quisquam
+              quibusdam!
+            </p>
+          </div>
+        </div>
+
+        <div class="book">
+          <div class="face-front">
+            <h1>Title 6</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perferendis nemo
+              blanditiis impedit aut soluta quia illum deserunt, vero quod ducimus placeat voluptate
+              quidem error sequi, earum eos minima in!
+            </p>
+          </div>
+          <div class="face-back" id="portada-back"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var front = document.querySelector('.face-front');
+      var back = document.querySelector('.face-back');
+      var flip = document.querySelector('.book-content');
+      var uno = document.querySelectorAll('.book');
+      var portada = document.querySelectorAll('#portada');
+
+      var contZindex = 2;
+      var customZindex = 1;
+
+      for (var i = 0; i < uno.length; i++) {
+        uno[i].style.zIndex = customZindex;
+        customZindex--;
+
+        uno[i].addEventListener('click', function (e) {
+          var tgt = e.target;
+          var unoThis = this;
+
+          unoThis.style.zIndex = contZindex;
+          contZindex++;
+
+          if (tgt.getAttribute('class') == 'face-front') {
+            unoThis.style.zIndex = contZindex;
+            contZindex += 20;
+            setTimeout(function () {
+              unoThis.style.transform = 'rotateY(-180deg)';
+            }, 500);
+          }
+          if (tgt.getAttribute('class') == 'face-back') {
+            unoThis.style.zIndex = contZindex;
+            contZindex += 20;
+
+            setTimeout(function () {
+              unoThis.style.transform = 'rotateY(0deg)';
+            }, 500);
+          }
+
+          if (tgt.getAttribute('id') == 'portada') {
+            flip.classList.remove('trnsf-reset');
+            flip.classList.add('trnsf');
+          }
+          if (tgt.getAttribute('id') == 'trsf') {
+            flip.classList.remove('trnsf');
+            flip.classList.add('trnsf-reset');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

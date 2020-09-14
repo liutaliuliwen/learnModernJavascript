@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #hour {
+        color: #ff0000;
+      }
+
+      #minute {
+        color: #00ff00;
+      }
+
+      #second {
+        color: #0000ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div><span id="hour">12</span>:<span id="minute">38</span>:<span id="second">32</span></div>
+    <div>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = ("0" + now.getSeconds()).slice(-2);
+        const hour = document.getElementById('hour');
+        hour.textContent = hours;
+        const minute = document.getElementById('minute');
+        minute.textContent = minutes;
+        const second = document.getElementById('second');
+        second.textContent = seconds;
+      }
+
+      updateTime();
+
+      let timer = setInterval(updateTime, 1000);
+      const stop = document.getElementById("stop");
+      stop.addEventListener("click", () => {
+          clearInterval(timer);
+      });
+
+      const start = document.getElementById("start");
+      start.addEventListener("click", () => {
+          if(timer){
+            clearInterval(timer);
+          }
+        timer = setInterval(updateTime, 1000);
+      });
+    </script>
+  </body>
+</html>
